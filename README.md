@@ -1,4 +1,4 @@
-### Hi there 👋 This is Jack
+### 👋 Hi there, this is Jack
 
 I am a dedicated and detail-oriented technology enthusiast with expertise in Python, Java, and front-end development (HTML/CSS & JavaScript) and UI/UX design. 
 Currently expanding my skills in machine learning (PyTorch, Tensorflow) and back-end development with Django. 
