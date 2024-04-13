@@ -11,6 +11,8 @@ I believe the beauty will manifest through the contemplation of the logical rela
 - 🌱 I’m currently learning machine learning, front-end, back-end development and UI/UX design
 - 🤔 I’m looking for help with people who want to connected and inspired by the bright future of AI and advance technology
 - 📫 How to reach me: 18922443765jack@gmail.com / s2510156@ed.ac.uk
-- ⚡ Fun fact: I love philosophy and psychology, and I also write articles on Medium and 少数派
-- 📷 Subscribe my instagram(jacksuuuuu) or 小红书
+- ⚡ Fun fact: I love philosophy and psychology, and I also write articles on Medium and 少数派(杰克苏的假象世界)
+- 📷 Subscribe my instagram(jacksuuuuu) or 小红书(杰克苏的假象世界)
 
+### Life quote
+> He who has a why to live for can bear almost any how - Friedrich_Nietzsche
