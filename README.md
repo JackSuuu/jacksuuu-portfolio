@@ -5,7 +5,7 @@ Currently expanding my skills in machine learning (PyTorch, Tensorflow) and back
 I aim to providing advance thoughts and insights with meaningful implementation to manifest the beauty of the internal world of my mind.
 I believe the beauty will manifest through the contemplation of the logical relationship of matters.
 
-Here are some ideas to get you started:
+**My Info:**
 
 - 🔭 I’m currently studying as a computetr science student in The University of Edinburgh
 - 🌱 I’m currently learning machine learning, front-end, back-end development and UI/UX design
