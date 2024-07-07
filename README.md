@@ -1,6 +1,6 @@
 ## 👋 Hi there, this is Jack Su
 I am a dedicated and detail-oriented technology enthusiast with expertise in Machine Learning, Web development and UI/UX design. 
-Expanding my skills in the fast-changing world and adapting to it has always been my priority 
+Expanding my skills in the fast-changing world and adapting to it has always been my priority.
 I aim to providing advance thoughts and insights with meaningful implementation to represent the internal world of my mind.
 I believe the beauty will manifest through the contemplation of the logical relationship of matters.
 
