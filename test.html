@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600&display=swap');
+
+        * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        }
+
+        /* body {
+        min-height: 100lvh;
+        background-color: #140D6A; */
+        /*   font-family: 'Manrope', sans-serif; */
+        /* font-family: 'Syne', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        } */
+
+        button {
+        font-weight: 600;
+        font-size: 1.2rem;
+        font-family: 'Syne', sans-serif;
+        cursor: pointer;
+        color: white;
+        outline: none;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(
+            at 100% 100%, 
+            rgba(129,104,206,1) 20%, 
+            rgba(156,171,207,1) 100%
+        );
+        box-shadow: 4px 4px 20px 4px rgba(156, 171, 207, 0.12);
+        width: 140px;
+        height: 140px;
+        border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button>Hover me</button>
+    <script>
+        // Select the button element from the document
+        const button = document.querySelector('button');
+
+        // Get the button's bounding rectangle dimensions and position
+        let boundingRect = button.getBoundingClientRect();
+
+        // Add an event listener to the window to update the bounding rectangle dimensions
+        // when the window is resized
+        window.addEventListener('resize', () => {
+        boundingRect = button.getBoundingClientRect();
+        });
+
+        // Add an event listener for mouse movement over the button
+        button.addEventListener('mousemove', (e) => {
+        // Calculate mouse position relative to the button
+        const mousePosX = e.x - boundingRect.left; // X position
+        const mousePosY = e.y - boundingRect.top;  // Y position
+        
+        // Use GSAP (GreenSock Animation Platform) to animate the button
+        // This creates a 'magnetic' effect where the button moves towards the mouse
+        gsap.to(button, {
+            x: (mousePosX - boundingRect.width / 2) * 0.4, // Move horizontally towards mouse
+            y: (mousePosY - boundingRect.height / 2) * 0.4, // Move vertically towards mouse
+            duration: 0.8, // Duration of the animation
+            ease: 'power3.out', // Easing function for smooth animation
+        });
+        });
+
+        // Add an event listener for when the mouse leaves the button area
+        button.addEventListener('mouseleave', () => {
+        // Animate the button back to its original position
+        gsap.to(button, {
+            x: 0, // Reset horizontal position
+            y: 0, // Reset vertical position
+            duration: 0.8, // Duration of the animation
+            ease: 'elastic.out(1,0.3)' // Easing function for a 'springy' return
+        });
+        });
+    </script>
+</body>
+</html>

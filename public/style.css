@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600&display=swap');
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Syne", sans-serif;
+      
+}   
+
+.magnetic {
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+#home-page {
+    height: 100vh;
+    background-color: #262626;
+}
+
+#intro-page {
+    height: 100vh;
+    background-color: white;
+}

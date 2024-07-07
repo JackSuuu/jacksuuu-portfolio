@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Profilo Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spacegrey: '262626'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+    <!-- HOME-PAGE -->
+    <section id="home-page"></section>
+    <script type="text/babel" src="home_page.js"></script>
+
+    <!-- ABOUT PAGE -->
+    <section id="intro-page">
+        <div class="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+            <div class="relative w-full max-w-4xl border border-border p-8">
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
+              <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
+              <div class="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 rotate-90">WELCOME TO MY MIND</div>
+              <div class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 -rotate-90">WELCOME TO MY MIND</div>
+              <div class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white p-2 rounded">000</div>
+              <div class="text-center">
+                <h1 class="text-4xl font-bold">Introduce</h1>
+                <h2 class="text-4xl font-bold">A git</h2>
+                <p class="mt-4">Lorem ipsum dolor sit amet</p>
+                <p>consectetur adipiscing elit</p>
+                <p>Aenean vel elit sit amet nibh</p>
+                <p>sagittis consequat ut sit amet nisl</p>
+                <p>Lorem ipsum dolor sit amet</p>
+                <p>Lorem ipsum dolor sit amet,</p>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- WORK PAGE -->
+    <section id="work-page"></section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact-page"></section>
+    
+    <script src="index.js"></script>
+</body>
+</html>
