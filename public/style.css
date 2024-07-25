@@ -25,10 +25,26 @@
 
 #home-page {
     height: 100vh;
-    background-color: #262626;
 }
 
 #intro-page {
     height: 100vh;
     background-color: white;
 }
+
+#work-page {
+    height: 100vh;
+}
+
+#contact-page {
+    height: 100vh;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #d28e40 0%, #8044ce 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback for browsers that don't support background-clip: text */
+    z-index: 10;
+  }

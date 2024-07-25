@@ -12,52 +12,195 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
             theme: {
                 extend: {
                     colors: {
-                        spacegrey: '262626'
-                    }
+                        spacegrey: '262626',
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
                 }
             }
         }
     </script>
+    <style type="text/tailwindcss">
+    @layer base {
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 240 10% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 240 10% 3.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 240 10% 3.9%;
+            --primary: 240 5.9% 10%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 240 4.8% 95.9%;
+            --secondary-foreground: 240 5.9% 10%;
+            --muted: 240 4.8% 95.9%;
+            --muted-foreground: 240 3.8% 46.1%;
+            --accent: 240 4.8% 95.9%;
+            --accent-foreground: 240 5.9% 10%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 240 5.9% 90%;
+            --input: 240 5.9% 90%;
+            --ring: 240 5.9% 10%;
+            --radius: 0.5rem;
+        }
+        .dark {
+            --background: 240 10% 3.9%;
+            --foreground: 0 0% 98%;
+            --card: 240 10% 3.9%;
+            --card-foreground: 0 0% 98%;
+            --popover: 240 10% 3.9%;
+            --popover-foreground: 0 0% 98%;
+            --primary: 0 0% 98%;
+            --primary-foreground: 240 5.9% 10%;
+            --secondary: 240 3.7% 15.9%;
+            --secondary-foreground: 0 0% 98%;
+            --muted: 240 3.7% 15.9%;
+            --muted-foreground: 240 5% 64.9%;
+            --accent: 240 3.7% 15.9%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 240 3.7% 15.9%;
+            --input: 240 3.7% 15.9%;
+            --ring: 240 4.9% 83.9%;
+            }
+        }
+</style>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
 <body>
     <!-- HOME-PAGE -->
-    <section id="home-page"></section>
+    <section id="home-page" class="bg-zinc-800"></section>
     <script type="text/babel" src="home_page.js"></script>
 
+    <!-- WORK PAGE -->
+    <section id="work-page" class="">
+        <div class="p-8">
+            <div class="flex justify-between items-start mb-8">
+                <div class="w-1/2">
+                <p class="text-lg text-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel elit sit amet nibh sagittis consequat ut sit amet nisl.</p>
+                </div>
+                <div class="w-1/2 flex flex-col items-end">
+                <p class="text-lg text-foreground mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <button class="bg-primary text-primary-foreground rounded-full px-4 py-2">about me</button>
+                </div>
+            </div>
+            <!-- TODO: at margin-top:3rem here -->
+            <div class="border-t border-border pt-28"> 
+                <h2 class="text-muted-foreground mb-4">RECENT WORK</h2>
+                <div class="flex space-x-4">
+                <div class="border border-border p-4 w-1/2">
+                    <img src="https://placehold.co/600x400" alt="Project 1 image" class="w-full h-40 object-cover mb-4" />
+                    <h3 class="text-card-foreground mb-2">Project 1</h3>
+                    <p class="text-muted-foreground mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="text-primary">github icon</a>
+                </div>
+    
+                <div class="border border-border p-4 w-1/2">
+                    <img src="https://placehold.co/600x400" alt="Project 2 image" class="w-full h-40 object-cover mb-4" />
+                    <h3 class="text-card-foreground mb-2">Project 2</h3>
+                    <p class="text-muted-foreground mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="text-primary">github icon</a>
+                </div>
+                </div>
+            </div>
+    
+            <div class="flex justify-center mt-8">
+                <button class="bg-primary text-primary-foreground px-4 py-2 rounded">more work...</button>
+            </div>
+            </div>
+    </section>
+
     <!-- ABOUT PAGE -->
-    <section id="intro-page">
-        <div class="p-10 flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+    <section id="about-page">
+        <div class="p-10 flex flex-col items-center justify-center min-h-screen bg-black text-foreground">
             <div class="relative w-full max-w-4xl border border-border p-8">
-              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
-              <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
-              <div class="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 rotate-90">WELCOME TO MY MIND</div>
-              <div class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 -rotate-90">WELCOME TO MY MIND</div>
-              <div class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white p-2 rounded">000</div>
-              <div class="text-center">
-                <h1 class="text-4xl font-bold">Introduce</h1>
-                <h2 class="text-4xl font-bold">A git</h2>
-                <p class="mt-4">Lorem ipsum dolor sit amet</p>
-                <p>consectetur adipiscing elit</p>
-                <p>Aenean vel elit sit amet nibh</p>
-                <p>sagittis consequat ut sit amet nisl</p>
-                <p>Lorem ipsum dolor sit amet</p>
-                <p>Lorem ipsum dolor sit amet,</p>
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 text-center bg-background px-4">WELCOME TO MY MIND</div>
+                <div class="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 rotate-90">WELCOME TO MY MIND</div>
+                <div class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-center bg-background px-4 -rotate-90">WELCOME TO MY MIND</div>
+                <div class="absolute top-0 right-0 mt-4 mr-8 bg-white text-black p-2 rounded">000</div>
+                <div class="text-center">
+                <h1 class="text-4xl font-bold text-white">Introduce</h1>
+                <h2 class="text-4xl font-bold text-white">A git</h2>
+                <p class="mt-4 text-white">Lorem ipsum dolor sit amet</p>
+                <p class="text-white">consectetur adipiscing elit</p>
+                <p class="text-white">Aenean vel elit sit amet nibh</p>
+                <p class="text-white">sagittis consequat ut sit amet nisl</p>
+                <p class="text-white">Lorem ipsum dolor sit amet</p>
+                <p class="text-white">Lorem ipsum dolor sit amet,</p>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact-page" class="bg-[url('assets/mountain_pur.jpg')] bg-no-repeat bg-center bg-cover h-screen w-screen text-inter">
+        <div class="min-h-screen">
+            <div class="flex justify-between items-center p-5 bg-black/30 text-white backdrop-blur-md">
+                <button class="transition duration-300 ease-in-out hover:text-[#DBDBDB]">@ code by Jack</button> 
+                <ul class="flex justify-between item-center p-3 gap-x-3 border border-3.5 rounded-lg">
+                    <li><a href="#intro-page" class="transition duration-300 ease-in-out hover:text-[#DBDBDB]">Work</a></li>
+                    <li><button class="transition duration-300 ease-in-out hover:text-[#DBDBDB]">About</button></li>
+                    <li><button class="transition duration-300 ease-in-out hover:text-[#DBDBDB]">Contact</button></li>
+                </ul>
+            </div>
+            <!-- <img src="assets/Binary_001.png" class=""> -->
+             <!-- TODO: Choose wether to add data-follow attribute -->
+            <div class="flex flex-col items-center justify-center relative p-20 m-20 bg-card/60 rounded-lg shadow-lg backdrop-blur-lg">
+              <div class="absolute top-0 left-0 w-full h-full bg-transparent border border-muted rounded-lg"></div>
+              <div class="flex items-center mb-4">
+                <img class="w-16 h-16 rounded-full border-2 border-white" src="assets/profile.png" alt="Profile Picture" />
               </div>
+              <h1 class="relative text-3xl text-center font-bold text-muted-foreground mb-2">Let’s build something <span class="text-muted-foreground gradient-text">splendid!</span></h1>
+              <!-- <img src="assets/spl_banner.png" alt="banner" class="absolute" style="z-index: 0;"> -->
+              <button><p class="text-muted-foreground">email: 18922443765jack@gmail.com</p></button>
+              <p class="text-muted-foreground">github: https://github.com/JackSuuu</p>
+              <button class="bg-primary text-primary-foreground rounded-full px-4 py-2 mt-5">more</button>
             </div>
           </div>
     </section>
-
-    <!-- WORK PAGE -->
-    <section id="work-page"></section>
-
-    <!-- CONTACT PAGE -->
-    <section id="contact-page"></section>
+    <script src="https://unpkg.com/follow-js/dist/follow.min.js" data-follow-auto></script>
     
     <script src="index.js"></script>
 </body>
