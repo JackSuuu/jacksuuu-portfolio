@@ -26,11 +26,11 @@
       <div class="vignette"></div>
 
       <h3 class="nav-title _1">
-        <a href="#">HOME</a>
+        <a href="#hello">HOME</a>
         <div class="loader"></div>
       </h3>
       <h3 class="nav-title _2">
-        <a href="#hello">ABOUT ME</a>
+        <a href="#about_me">ABOUT ME</a>
         <div class="loader"></div>
       </h3>
       <h3 class="nav-title _3">
@@ -45,14 +45,16 @@
 
       <section id="hello">
         <div class="section-content">
-          <h2 class="title">
-            Hi, I am Jack Su, currently a Bsc Computer Science Student in
-          </h2>
-          <h2 class="title">The University of Edinburgh</h2>
-          <h2 class="title">I LOVE explore different things</h2>
-          <h2 class="title">
-            My interest involved machine learning and web development
-          </h2>
+          <div class="inner-intro">
+              <h2 class="title">
+                Hi, I am Jack Su, currently a Bsc Computer Science Student in
+              </h2>
+              <h2 class="title">The University of Edinburgh</h2>
+              <h2 class="title">I LOVE explore different things</h2>
+              <h2 class="title">
+                My interest involved machine learning and web development
+              </h2>
+          </div>
           <h3 class="headline centered">Hi, I am Jack Su</h3>
           <svg
             id="svg-globe"
@@ -83,6 +85,27 @@
           </svg>
         </div>
         <div id="img-bkg"><img src="asset/home_page_bg.gif" alt="" /></div>
+      </section>
+
+      <section id="about_me">
+        <div class="about-me-container" style="display: flex; justify-content: space-between; padding: 50px;">
+          <div style="flex: 1; padding: 10px;">
+            <!-- Left content here -->
+            <div class="wrapper">
+              <svg>
+                <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                  ABOUT ME
+                </text>
+              </svg>
+            </div>
+            <img style="border: 2px solid white; max-width: 400px; filter: grayscale(100%); position: absolute; left: 200px; top: 140px;" src="asset/me.jpeg" alt="">
+          </div>
+          <div style="flex: 1; padding: 10px; padding-top: 60px; padding-right: 80px;">
+            <!-- Right content here -->
+            <h1 style="font-size: 60px;" >I CONSTRUCT CONNECTIONS BETWEEN ADVANCE TECHNOLOGY AND HUMAN</h1>
+            <p style="max-width: 400px;" >I am a passionate software engineer who builds with both purpose and spirit, blending technology and curiosity to explore deeper connections between AI, software, and human experience.</p>
+          </div>
+        </div>
       </section>
 
       <section id="studio">
@@ -185,6 +208,16 @@
               <p></p>
               <h3 class="btn-more"><a href="#">+ MORE</a></h3>
             </div>
+            <div class="card">
+              <h2>Project 8</h2>
+              <p>
+                The quick, brown fox jumps over a lazy dog. DJs flock by when
+                MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog,
+                flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex!
+              </p>
+              <p></p>
+              <h3 class="btn-more"><a href="#">+ MORE</a></h3>
+            </div>
           </div>
         </div>
       </section>
@@ -211,18 +244,15 @@
                   filter='url(#noiseFilter)' />
           </svg>
           <div class="content">
-            <h1 style="color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">Contact Me</h1>
+            <h1 style="text-align: center; font-size: 60px; color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgb(35, 35, 35) 100%); margin-bottom: 30px;">Contact Me</h1>
             <form action="https://example.com/submit" method="post" style="background: transparent;">
-                <label for="name" style="color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">Name:</label>
-                <input type="text" id="name" name="name" required style="background: transparent; border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">
+                <input placeholder="NAME" type="text" id="name" name="name" required style="background: rgba(255, 255, 255, 0.477); border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; color: black; font-size: 18px;">
                 <br>
-                <label for="email" style="color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">Email:</label>
-                <input type="email" id="email" name="email" required style="background: transparent; border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">
+                <input placeholder="EMAIL" type="email" id="email" name="email" required style="background: rgba(255, 255, 255, 0.477); border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; color: black; font-size: 18px;"">
                 <br>
-                <label for="message" style="color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);">Message:</label>
-                <textarea id="message" name="message" required style="background: transparent; border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; height: 150px; color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 44%, rgba(255,255,255,1) 100%);"></textarea>
+                <textarea placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT" id="message" name="message" required style="background: rgba(255, 255, 255, 0.477); border: 1px solid whitesmoke; padding: 5px; margin: 10px; display: block; width: 100%; height: 150px; color: black; font-size: 18px;""></textarea>
                 <br>
-                <button type="submit" style="background-color: black; color: whitesmoke; padding: 10px 20px; font-size: 16px;">Submit</button>
+                <button type="submit" style="background-color: black; color: whitesmoke; padding: 10px 40px; font-size: 15px; border-radius: 10px; display: block; margin: 0 auto;">Submit</button>
               </form>
           </div>
         </div>
