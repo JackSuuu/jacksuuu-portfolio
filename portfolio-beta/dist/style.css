@@ -366,6 +366,11 @@ section#studio .overlay {
   filter: var(--filter-01);
 }
 
+.about-me-container .btn-more a {
+  background-image: linear-gradient(180deg, transparent 50%, var(--c0) 50%) !important;
+  /* filter: brightness(0); */
+}
+
 a {
   color: var(--c11);
   text-decoration: none;
@@ -644,14 +649,14 @@ a {
 
 :root {
   --color-bg1: rgb(255, 255, 255);
-  --color-bg2: rgb(215, 215, 215);
+  --color-bg2: rgba(215, 215, 215, 0.599);
   --color1: 0, 0, 0;
-  --color2:  #c0c0c0;
-  --color3:  #7e7e7e;
-  --color4:  #000000;
-  --color5:  #8d8d8d;
-  --color-interactive:  #858585;
-  --circle-size: 80%;
+  --color2: 0, 0, 0;
+  --color3: 0, 0, 0;
+  --color4: 0, 0, 0;
+  --color5: 0, 0, 0;
+  --color-interactive: 0, 0, 0;
+  --circle-size: 70%;
   --blending: hard-light;
 }
 
@@ -803,7 +808,7 @@ p {
     left: calc(50% - var(--circle-size) / 2);
 
     transform-origin: center center;
-    animation: moveVertical 30s ease infinite;
+    animation: moveVertical 10s ease infinite;
 
     opacity: 1;
   }
@@ -918,12 +923,96 @@ svg text {
 
 
 @media (max-width: 500px) {
-  section#about_me  {
-    display: none;
+  
+
+}
+
+.about-me-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.left-content {
+  flex: 1;
+  padding: 10px;
+  position: relative;
+}
+
+
+.profile-image {
+  border: 2px solid white;
+  max-width: 450px;
+  filter: grayscale(100%);
+  position: absolute;
+  left: 240px;
+  top: 100px;
+}
+
+.right-content {
+  flex: 1;
+  padding: 10px;
+  padding-top: 80px;
+  padding-right: 165px;
+}
+
+.about-me-headline {
+  font-size: 60px;
+}
+
+.description {
+  max-width: 400px;
+  font-size: 20px;
+}
+
+@media (max-width: 1598px) {
+  .about-me-container {
+    transition: all 0.6s ease-in-out;
   }
 
-  .about-me-img{
-    display: none;
+  .right-content {
+    padding: 10px 100px;
   }
 
+  .profile-image {
+    position: static;
+    margin: -70px auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about-me-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow-y: scroll;
+    transition: all 0.6s ease-in-out;
+  }
+
+  .right-content {
+    padding: 10px 100px;
+    text-align: center;
+  }
+
+  .about-me-headline {
+    font-size: 47px;
+  }
+
+  .description {
+    margin: 0 auto;
+  }
+
+  .profile-image {
+    /* max-width: 310px; */
+    position: static;
+    margin: 0 auto;
+    top: -100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-image {
+    max-width: 310px;
+  }
 }
