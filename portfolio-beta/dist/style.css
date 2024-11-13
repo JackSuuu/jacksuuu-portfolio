@@ -240,17 +240,9 @@ section .section-content .title {
 
 @media (max-width: 393px) {
   section .section-content .inner-intro .title {
-    font-size: 13px;
+    font-size: 15px;
     left: -3rem;
     transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
-  }
-}
-
-@media (max-height: 571px) {
-  section .section-content .inner-intro .title {
-    font-size: 13px;
-    left: -3rem;
-    transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
 }
 
