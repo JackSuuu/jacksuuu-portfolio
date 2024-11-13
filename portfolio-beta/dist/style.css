@@ -1130,8 +1130,8 @@ article {
 
 @media (max-width: 600px) {
   .icon-list {
-    top: 420px;
-    right: 50px;
+    top: 435px;
+    right: 60px;
   }
   .icon-list ul li a img {
     width: 40px;
@@ -1140,10 +1140,17 @@ article {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 390px) {
   .icon-list {
-    top: 350px;
-    right: 40px;
+    top: 400px;
+    right: 50px;
+  }
+}
+
+@media (max-width: 375px) {
+  .icon-list {
+    top: 310px;
+    right: 50px;
   }
 }
 
