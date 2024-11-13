@@ -1033,6 +1033,7 @@ svg text {
     /* max-width: 310px; */
     position: static;
     margin: 0 auto;
+    margin-top: -80px;
     top: -100px;
   }
 }
@@ -1124,8 +1125,10 @@ article {
   }
 
   .icon-list ul {
+    padding-left: 0;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     list-style: none;
   }
 }
