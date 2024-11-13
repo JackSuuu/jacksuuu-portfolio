@@ -433,6 +433,13 @@ a {
   }
 }
 
+@media (max-height: 615px) {
+  .headline {
+    top: 63%;
+    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+  }
+}
+
 .nav-title {
   z-index: 12;
   position: fixed;
