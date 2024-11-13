@@ -1035,3 +1035,78 @@ article {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 } 
+
+.submit-btn {
+  background-color: black; 
+  color: whitesmoke; 
+  padding: 10px 40px; 
+  font-size: 15px; 
+  border-radius: 5px; 
+  display: block; 
+  margin: 0 auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Container for the icon list */
+.icon-list {
+  position: absolute;
+  right: 300px;
+  top: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Styling the unordered list */
+.icon-list ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 210px;
+}
+
+/* Styling individual list items */
+.icon-list ul li {
+  list-style: none;
+}
+
+/* Styling the icons */
+.icon-list ul li a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Adding a hover effect */
+.icon-list ul li a img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .icon-list {
+    top: 500px;
+    right: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-list {
+    top: 430px;
+    right: 50px;
+  }
+  .icon-list ul li a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease-in-out;
+  }
+}
