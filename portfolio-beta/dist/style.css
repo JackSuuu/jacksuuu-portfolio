@@ -1155,9 +1155,16 @@ article {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 380px) {
   .icon-list {
-    top: 310px;
+    top: 300px;
+    right: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .icon-list {
+    top: 350px;
     right: 50px;
   }
 }
