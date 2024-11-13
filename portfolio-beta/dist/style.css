@@ -1079,8 +1079,8 @@ article {
 /* Container for the icon list */
 .icon-list {
   position: absolute;
-  right: 300px;
-  top: 450px;
+  right: 185px;
+  top: 150px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1090,11 +1090,12 @@ article {
 /* Styling the unordered list */
 .icon-list ul {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
-  padding: 0;
   margin: 0;
   width: 210px;
+  gap: 20px; /* Add space between each icon */
 }
 
 /* Styling individual list items */
@@ -1117,61 +1118,15 @@ article {
 
 @media (max-width: 1024px) {
   .icon-list {
-    top: 600px;
-    right: 250px;
+    position: static;
+    margin-top: 20px;
+    margin-bottom: -40px;
+  }
+
+  .icon-list ul {
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
   }
 }
 
-@media (max-width: 900px) {
-  .icon-list {
-    top: 600px;
-    right: 170px;
-  }
-}
-
-@media (max-width: 800px) {
-  .icon-list {
-    top: 400px;
-    right: 110px;
-  }
-}
-
-@media (max-width: 600px) {
-  .icon-list {
-    top: 435px;
-    right: 60px;
-  }
-  .icon-list ul li a img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.2s ease-in-out;
-  }
-}
-
-@media (max-width: 390px) {
-  .icon-list {
-    top: 400px;
-    right: 50px;
-  }
-}
-
-@media (max-width: 380px) {
-  .icon-list {
-    top: 300px;
-    right: 50px;
-  }
-}
-
-@media (max-width: 360px) {
-  .icon-list {
-    top: 350px;
-    right: 50px;
-  }
-}
-
-@media (max-width: 344px) {
-  .icon-list {
-    top: 450px;
-    right: 40px;
-  }
-}
