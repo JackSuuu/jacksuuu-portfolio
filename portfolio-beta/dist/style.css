@@ -246,6 +246,15 @@ section .section-content .title {
   }
 }
 
+@media (max-height: 571px) {
+  section .section-content .inner-intro .title {
+    font-size: 13px;
+    left: -3rem;
+    transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+
 
 section#hello .section-content .headline {
   color: var(--c11);
@@ -408,19 +417,20 @@ a {
   opacity: 0.035;
   text-align: center;
   transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.6s ease, word-wrap 0.6s ease;
 }
 
 @media (max-width: 900px) {
   .headline {
     font-size: 130px;
-    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+    transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
 
 @media (max-width: 800px) {
   .headline {
     font-size: 70px;
-    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+    transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
 
@@ -429,14 +439,21 @@ a {
     top: 50%;
     font-size: 50px;
     white-space: nowrap;
-    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+    transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
 
-@media (max-height: 615px) {
+@media (max-height: 680px) {
   .headline {
     top: 63%;
-    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+    transition: all 0.6s ease, word-wrap 0.6s ease;
+  }
+}
+
+@media (max-height: 571px) {
+  .headline {
+    top: 70%;
+    transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
 
