@@ -225,6 +225,15 @@ section .section-content .title {
   }
 }
 
+@media (max-width: 380px) {
+  section .section-content .inner-intro .title {
+    font-size: 14px;
+    left: -3rem;
+    transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+
 section#hello .section-content .headline {
   color: var(--c11);
   opacity: 1;
@@ -388,10 +397,16 @@ a {
   transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
+@media (max-width: 900px) {
+  .headline {
+    font-size: 130px;
+    transition: font-size 0.6s ease, word-wrap 0.6s ease;
+  }
+}
+
 @media (max-width: 800px) {
   .headline {
-    font-size: 100px;
-    white-space: normal;
+    font-size: 70px;
     transition: font-size 0.6s ease, word-wrap 0.6s ease;
   }
 }
@@ -982,7 +997,7 @@ svg text {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .about-me-container {
     display: flex;
     flex-direction: column;
@@ -1092,6 +1107,20 @@ article {
   cursor: pointer;
 }
 
+@media (max-width: 1024px) {
+  .icon-list {
+    top: 600px;
+    right: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .icon-list {
+    top: 600px;
+    right: 170px;
+  }
+}
+
 @media (max-width: 800px) {
   .icon-list {
     top: 500px;
@@ -1101,12 +1130,26 @@ article {
 
 @media (max-width: 600px) {
   .icon-list {
-    top: 430px;
+    top: 420px;
     right: 50px;
   }
   .icon-list ul li a img {
     width: 40px;
     height: 40px;
     transition: transform 0.2s ease-in-out;
+  }
+}
+
+@media (max-width: 380px) {
+  .icon-list {
+    top: 350px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 344px) {
+  .icon-list {
+    top: 450px;
+    right: 40px;
   }
 }
