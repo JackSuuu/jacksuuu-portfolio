@@ -79,6 +79,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background: #333;
+  color: white;
+}
+
 html {
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);

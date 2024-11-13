@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        ::selection {
+            background: #333;
+            color: white;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Georgia, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f4f8, #d6e1f2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            font-size: 150px;
+            margin: 150px 0 50px 0;
+            color: #333;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            text-align: left;
+            color: #555;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: color 0.3s, transform 0.3s;
+        }
+        li:hover {
+            color: #000;
+            transform: scale(1.05);
+        }
+        p {
+            max-width: 700px;
+            font-size: 20px;
+            line-height: 1.8;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        @media (max-width: 800px) {
+            p {
+            font-size: 18px;
+            }
+        }
+        a {
+            margin-top: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            border: 2px solid #b3b3b3;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>About Me</h1>
+    <p>
+        I am a passionate and driven computer science enthusiast exploring the depths of AI and machine learning. With a solid foundation in cognitive science, my curiosity for understanding intelligent systems led me to dive into machine learning algorithms, practical AI applications, and deep learning projects. I’ve developed strong skills in Python data analysis, and web development, working with tools like Pytorch, Numpy, and the Pandas.
+    </p>
+    <p>
+        I’m continuously pushing the boundaries of my technical abilities through hands-on projects, such as building a deep learning lottery predictor and a PDF filtering software using Pandas. My problem-solving mindset is complemented by my interest in real-world applications, like developing software solutions for student organizations, and enhancing my expertise in C and MIPS assembly for coursework.
+    </p>
+    <p>
+        Currently, I am focused on pursuing deeper knowledge in AI to further expand my technical expertise. My involvement in Formula Student projects has provided me with practical experience in collaborative, high-pressure environments, where I’ve contributed to developing efficient and innovative software solutions for autonomous systems.
+    </p>
+    <p>
+        Outside of my academic pursuits, I am dedicated to my personal fitness, consistently hitting the gym and enjoying running. I’ve also taken on leadership roles, having acted as the captain of a badminton team. In my downtime, I love reading books across a wide range of genres, with a particular focus on productivity, psychology, and science fiction.
+    </p>
+    <h2>Skills</h2>
+    <ul>
+        <li><strong>Programming Languages:</strong> Python, HTML/CSS, JavaScript, Java, C, C++, TypeScript, Haskell, MIPS</li>
+        <li><strong>Scientific Library: </strong> Sckit-learn, Pytorch, Tensorflow, Numpy, Pandas, Matplotlib</li>
+        <li><strong>Personal Interests: </strong> Gym, Tennis, Badminton, Reading</li>
+    </ul>
+    <a href="index.html#about_me">Back to the Portfolio</a>
+</body>
+</html>
