@@ -437,14 +437,14 @@ a {
 
 @media (max-height: 680px) {
   .headline {
-    top: 63%;
+    top: 50%;
     transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
 
 @media (max-height: 571px) {
   .headline {
-    top: 70%;
+    top: 60%;
     transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
