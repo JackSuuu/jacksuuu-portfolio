@@ -982,6 +982,7 @@ svg text {
 }
 
 .left-content {
+  margin-top: 30px;
   flex: 1;
   padding: 10px;
   position: relative;
