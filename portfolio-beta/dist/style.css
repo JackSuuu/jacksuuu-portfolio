@@ -1088,10 +1088,13 @@ article {
 } 
 
 .submit-btn {
+  opacity: 80%;
+  backdrop-filter: blur(20px);
   background-color: black; 
   color: whitesmoke; 
-  padding: 10px 40px; 
-  font-size: 15px; 
+  padding: 10px 80px; 
+  font-size: 16px; 
+  text-transform: uppercase;
   border-radius: 5px; 
   display: block; 
   margin: 0 auto;
