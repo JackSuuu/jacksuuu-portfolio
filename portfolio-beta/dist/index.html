@@ -9,6 +9,8 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/follow.js/1.0.0/follow.min.js"></script>
   </head>
   <body>
     <!-- partial:index.partial.html -->
@@ -24,8 +26,6 @@
       href="https://api.fontshare.com/v2/css?f[]=aktura@400&display=swap"
       rel="stylesheet"
     />
-
-    <body>
       <div class="activity"></div>
       <div class="vignette"></div>
 
@@ -142,10 +142,10 @@
               <p>
                 This project aims to build a specialized AI model based on the deepseek api, tailored specifically for university students. 
                 By focusing on academic content, it provides targeted assistance in areas like research, exam prep, and subject-specific queries. 
-                Currently in development.
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/GPT-from-scratch-jacksu">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/GPT-from-scratch-jacksu">+ MORE</a></h3>
+              <img src="https://github.com/JackSuuu/UniGPT/raw/main/media/homepage.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
@@ -156,7 +156,8 @@
                 to gain a deeper insight into the model's operation and performance.
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/UniGPT">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/UniGPT">+ MORE</a></h3>
+              <img src="asset/gpt-scratch.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
 
@@ -168,7 +169,8 @@
                 While the system is functional, it indexes each page individually, which impacts its efficiency. 
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Examable">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Examable">+ MORE</a></h3>
+              <img src="asset/examble.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
@@ -179,7 +181,8 @@
                 Currently, it’s an experimental approach focused on optimizing model performance.
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/NeuralLott">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/NeuralLott">+ MORE</a></h3>
+              <img src="asset/neuralLott.webp" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
@@ -190,7 +193,8 @@
                 Currently in development, the game aims to deliver an exciting arcade-style experience.
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Punk-Battle/tree/main">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Punk-Battle/tree/main">+ MORE</a></h3>
+              <img src="https://github.com/JackSuuu/Punk-Battle/raw/main/game_design/demo.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
@@ -201,7 +205,8 @@
                 The interface, built with PyQt5, ensures a user-friendly experience.
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Papering">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Papering">+ MORE</a></h3>
+              <img src="asset/papering.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
@@ -212,7 +217,7 @@
                 and exciting!
               </p>
               <p></p>
-              <h3 class="btn-more"><a href="https://github.com/JackSuuu">+ MORE</a></h3>
+              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu">+ MORE</a></h3>
             </div>
 
             <!-- <div class="card">
@@ -355,7 +360,45 @@
           </div>
         </div>
       </section>
-    </body>
+      <script>
+        const hoverButtons = document.querySelectorAll(".hoverBtn");
+    
+        hoverButtons.forEach((button) => {
+            // Find the parent card and then the image within it
+            const card = button.closest('.card');
+            const image = card.querySelector('.popup-img');
+    
+            // Only proceed if the image exists
+            if (!image) return;
+    
+            button.addEventListener("mouseenter", () => {
+                image.style.display = "block";
+                gsap.fromTo(
+                    image,
+                    { opacity: 0, scale: 0.5 },
+                    { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }
+                );
+            });
+    
+            button.addEventListener("mouseleave", () => {
+                gsap.to(image, {
+                    opacity: 0,
+                    scale: 0.5,
+                    duration: 0.3,
+                    onComplete: () => {
+                        image.style.display = "none";
+                    },
+                });
+            });
+    
+            button.addEventListener("mousemove", (event) => {
+                if (image.style.display === "block") {
+                    image.style.left = `${event.clientX - 70}px`;
+                    image.style.top = `${event.clientY - 350}px`;
+                }
+            });
+        });
+    </script>
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>

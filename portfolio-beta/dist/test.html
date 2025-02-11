@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Hover Image Popup</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/follow.js/1.0.0/follow.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .popup-img {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            display: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <button id="hoverBtn">Hover</button>
+    <img src="https://images.unsplash.com/photo-1735827944545-b4316477f27d?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="popupImg" class="popup-img" alt="Popup Image">
+
+    <script>
+        const button = document.getElementById("hoverBtn");
+        const image = document.getElementById("popupImg");
+        
+        button.addEventListener("mouseenter", () => {
+            image.style.display = "block";
+            gsap.fromTo(image, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" });
+        });
+
+        button.addEventListener("mouseleave", () => {
+            gsap.to(image, { opacity: 0, scale: 0.5, duration: 0.3, onComplete: () => {
+                image.style.display = "none";
+            }});
+        });
+        
+        document.addEventListener("mousemove", (event) => {
+            if (image.style.display === "block") {
+                image.style.left = `${event.clientX + 10}px`;
+                image.style.top = `${event.clientY + 10}px`;
+            }
+        });
+    </script>
+</body>
+</html>
