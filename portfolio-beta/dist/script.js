@@ -4,25 +4,21 @@ Cursor
 
 let curs = document.querySelector(".cursor");
 
+let curX = 0, curY = 0, targetX = 0, targetY = 0;
+
 document.addEventListener("mousemove", (e) => {
- let x = e.pageX;
- let y = e.pageY;
- curs.style.left = x - 15 + "px";
- curs.style.top = y - 15 + "px";
-}); 
-
-let menuEls = document.querySelectorAll(".nav-title a, #logo-codepen");
-menuEls.forEach((el) => {
- el.addEventListener("mouseenter", () => {
-  setTimeout(() => {
-   curs.classList.add("cursor-fade");
-  }, 300);
- });
-
- el.addEventListener("mouseleave", () => {
-  curs.classList.remove("cursor-fade");
- });
+  targetX = e.pageX - 15;
+  targetY = e.pageY - 15;
 });
+
+function animateCursor() {
+  curX += (targetX - curX) / 10;
+  curY += (targetY - curY) / 10;
+  curs.style.transform = `translate(${curX}px, ${curY}px)`;
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
 
 /***********************************
 Timer
