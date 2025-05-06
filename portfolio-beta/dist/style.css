@@ -1176,22 +1176,6 @@ svg text {
   }
 }
 
-/* Text scrolling changing gradient effect */
-article {
-  /*  leverage cascade for cross-browser gradients  */
-  background: radial-gradient(
-    hsl(0, 0%, 56%), 
-    hsl(0, 0%, 0%) 
-  ) fixed;
-  background: conic-gradient(
-    hsl(0, 0%, 63%), 
-    hsl(0, 0%, 0%), 
-    hsl(0, 0%, 69%) 
-  ) fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} 
-
 .submit-btn {
   opacity: 80%;
   backdrop-filter: blur(20px);
