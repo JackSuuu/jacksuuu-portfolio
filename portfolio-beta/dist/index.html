@@ -13,6 +13,8 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/follow.js/1.0.0/follow.min.js"></script>
+    <!-- Add this in your head section after the gsap script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
   </head>
   <body>
     <!-- partial:index.partial.html -->
@@ -48,6 +50,13 @@
         <div class="loader"></div>
       </h3>
       <div class="cursor"></div>
+
+      <div class="scroll-indicator">
+        <div class="dot" data-section="hello"></div>
+        <div class="dot" data-section="about"></div>
+        <div class="dot" data-section="studio"></div>
+        <div class="dot" data-section="contact"></div>
+      </div>
 
       <section id="hello">
         <div class="section-content">
@@ -93,8 +102,8 @@
         <div id="img-bkg"><img src="asset/home_page_bg.gif" alt="" /></div>
       </section>
 
-      <section id="about_me">
-        <div class="about-me-container">
+
+        <div class="about-me-container" id="about_me">
           <div class="left-content">
             <div class="wrapper">
               <svg>
@@ -127,7 +136,7 @@
             </div>
           </div>
         </div>
-      </section>
+
 
       <section id="studio">
         <div class="section-content">
@@ -268,37 +277,175 @@
       </section>
 
       <section id="contact">
+        <div class="contact-background">
+            <!-- 3D CUBES - I know it called pyramid, too lazy to change it, it was intended to be pyramid lol -->
+            <div class="pyramid-container">
+              <div class="pyramid pyramid-1">
+                <div class="pyramid-face front"></div>
+                <div class="pyramid-face right"></div>
+                <div class="pyramid-face left"></div>
+                <div class="pyramid-face back"></div>
+                <div class="pyramid-face bottom"></div>
+                <div class="pyramid-face top"></div>
+              </div>
+              <div class="pyramid pyramid-2">
+                <div class="pyramid-face front"></div>
+                <div class="pyramid-face right"></div>
+                <div class="pyramid-face left"></div>
+                <div class="pyramid-face back"></div>
+                <div class="pyramid-face bottom"></div>
+                <div class="pyramid-face top"></div>
+              </div>
+              <div class="pyramid pyramid-3">
+                <div class="pyramid-face front"></div>
+                <div class="pyramid-face right"></div>
+                <div class="pyramid-face left"></div>
+                <div class="pyramid-face back"></div>
+                <div class="pyramid-face bottom"></div>
+                <div class="pyramid-face top"></div>
+              </div>
+            </div>
+            <style>
+              .pyramid-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                perspective: 1200px;
+                overflow: hidden;
+                z-index: 1;
+              }
+
+              @media (max-width: 500px) {
+                .pyramid-container {
+                  display: none;
+                }
+                
+                .sphere {
+                  display: none;
+                }
+              }
+
+              .pyramid {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                transform-style: preserve-3d;
+                animation: rotate 20s infinite linear;
+              }
+
+              .pyramid-1 {
+                top: 19%;
+                left: 20%;
+                animation-delay: -5s;
+              }
+
+              .pyramid-2 {
+                top: 60%;
+                left: 70%;
+                animation-delay: -5s;
+              }
+
+              .pyramid-3 {
+                top: 40%;
+                left: 50%;
+                animation-delay: -10s;
+              }
+
+              .pyramid-face {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                background-color: #000000;
+                opacity: 0.8;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              }
+
+              .front {
+                transform: translateZ(75px);
+              }
+
+              .right {
+                transform: rotateY(90deg) translateZ(75px);
+              }
+
+              .left {
+                transform: rotateY(-90deg) translateZ(75px);
+              }
+
+              .back {
+                transform: rotateY(180deg) translateZ(75px);
+              }
+
+              .bottom {
+                transform: rotateX(90deg) translateZ(75px);
+              }
+
+              .top {
+                transform: rotateX(-90deg) translateZ(75px);
+              }
+            
+            /* Spheres */
+            .sphere {
+              position: absolute;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              background: #000000;
+              box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+              animation: float 15s infinite ease-in-out;
+            }
+            
+            .sphere-1 {
+              top: 20%;
+              left: 60%;
+              animation-delay: -2s;
+            }
+            
+            .sphere-2 {
+              top: 70%;
+              left: 30%;
+              width: 80px;
+              height: 80px;
+              animation-delay: -7s;
+            }
+            
+            @keyframes rotate {
+              0% {
+              transform: rotateX(0) rotateY(0) rotateZ(0);
+              }
+              100% {
+              transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+              }
+            }
+            
+            @keyframes float {
+              0%, 100% { transform: translateY(0) translateX(0); }
+              25% { transform: translateY(20px) translateX(-15px); }
+              50% { transform: translateY(0) translateX(-30px); }
+              75% { transform: translateY(-20px) translateX(-15px); }
+            }
+            </style>
+            
+            <!-- Add sphere elements -->
+            <div class="sphere sphere-1"></div>
+            <div class="sphere sphere-2"></div>
+        </div>
         <div class="contact-card">
-          <svg 
-               viewBox="0 0 100% 100%"
-               xmlns='http://www.w3.org/2000/svg'
-               class="noise"
-               >
-            <filter id='noiseFilter'>
-              <feTurbulence 
-                            type='fractalNoise' 
-                            baseFrequency='0.85' 
-                            numOctaves='6' 
-                            stitchTiles='stitch' />
-            </filter>
-        
-            <rect
-                  width='100%'
-                  height='100%'
-                  preserveAspectRatio="xMidYMid meet"
-                  filter='url(#noiseFilter)' />
-          </svg>
+          <div class="card-corner top-left"></div>
+          <div class="card-corner top-right"></div>
+          <div class="card-corner bottom-left"></div>
+          <div class="card-corner bottom-right"></div>
           <div class="content">
-            <h1 style="text-align: center; color: rgb(173, 173, 173); margin-bottom: 30px;">Contact Me</h1>
+            <h1 style="text-align: center; margin-bottom: 30px;">Contact Me</h1>
             <form id="contact-form" method="post" style="background: transparent;">
                 <input type="hidden" id="to_name" name="to_name" value="Jack Su">
-                <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Name</label>
+                <label for="email" style="font-size: 20px; color: black; font-weight: bold;">Name</label>
                 <input placeholder="NAME" type="text" id="from_name" name="from_name" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; color: black; font-size: 16px; ::placeholder { color: black; }">
                 <br>
-                <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Email</label>
+                <label for="email" style="font-size: 20px; color: black; font-weight: bold;">Email</label>
                 <input placeholder="EMAIL" type="email" id="user_email" name="user_email" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; color: black; font-size: 16px;"">
                 <br>
-                <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Message</label>
+                <label for="email" style="font-size: 20px; color: black; font-weight: bold;">Message</label>
                 <textarea placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT" id="message" name="message" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; height: 100px; color: black; font-size: 16px; resize: none;"></textarea>
                 <br>
                 <input class="submit-btn" type="submit" value="Send"></input>
@@ -331,43 +478,6 @@
                     });
                 }
             </script>
-          </div>
-        </div>
-        <div class="gradient-bg">
-          <svg 
-               viewBox="0 0 100vw 100vw"
-               xmlns='http://www.w3.org/2000/svg'
-               class="noiseBg"
-               >
-            <filter id='noiseFilterBg'>
-              <feTurbulence 
-                            type='fractalNoise'
-                            baseFrequency='0.6'
-                            stitchTiles='stitch' />
-            </filter>
-        
-            <rect
-                  width='100%'
-                  height='100%'
-                  preserveAspectRatio="xMidYMid meet"
-                  filter='url(#noiseFilterBg)' />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                <feBlend in="SourceGraphic" in2="goo" />
-              </filter>
-            </defs>
-          </svg>
-          <div class="gradients-container">
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-            <div class="interactive"></div>
           </div>
         </div>
       </section>
@@ -419,5 +529,6 @@
     <script src="./script.js"></script>
     <script src="./email_api.js"></script>
     <script src="./animations.js"></script>
+    <!-- <script src="./scroll.js"></script> -->
   </body>
 </html>

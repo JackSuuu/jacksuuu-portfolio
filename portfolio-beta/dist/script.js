@@ -222,3 +222,101 @@ document.addEventListener('DOMContentLoaded', () => {
   move();
 });
 
+/***********************************
+Smooth Scrolling
+************************************/
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Use GSAP for smoother scrolling animation
+        gsap.to(window, {
+          duration: 1.2,
+          scrollTo: {
+            y: targetElement,
+            offsetY: 0
+          },
+          ease: "power3.out"
+        });
+      }
+    });
+  });
+});
+
+/***********************************
+Studio Section Display Manager
+************************************/
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Get studio section and cards container
+  const studioSection = document.getElementById('studio');
+  const studioContent = studioSection?.querySelector('.section-content');
+  const cardsContainer = studioSection?.querySelector('.cards-container');
+  
+  if (!studioSection || !cardsContainer) return;
+  
+  // Function to adjust studio section display
+  function adjustStudioSection() {
+    // Get the total height of all cards
+    const cardsHeight = cardsContainer.scrollHeight;
+    const headerHeight = 100; // Approximate height for headers/titles
+    const totalHeight = cardsHeight + headerHeight;
+    
+    // If we're on mobile
+    if (window.innerWidth <= 500) {
+      // Make studio section height fit all content
+      studioSection.style.height = 'auto';
+      studioSection.style.minHeight = '100vh';
+      
+      // Update cards container styles
+      cardsContainer.style.maxHeight = 'none';
+      cardsContainer.style.height = 'auto';
+      cardsContainer.style.overflowY = 'visible';
+      
+      // Make studio content fit all cards
+      if (studioContent) {
+        studioContent.style.height = 'auto';
+        studioContent.style.position = 'relative';
+        studioContent.style.overflow = 'visible';
+      }
+      
+      // Temporarily disable scroll snap on the section for smoother scrolling
+      studioSection.style.scrollSnapAlign = 'none';
+    } else {
+      // Reset for desktop
+      studioSection.style.height = '100vh';
+      studioSection.style.scrollSnapAlign = 'start';
+    }
+  }
+  
+  // Run on load
+  adjustStudioSection();
+  
+  // Run on resize
+  window.addEventListener('resize', adjustStudioSection);
+  
+  // Create an intersection observer to detect when studio section enters viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && window.innerWidth <= 500) {
+        // When section is in view
+        document.documentElement.style.scrollSnapType = 'none';
+        adjustStudioSection();
+      } else if (!entry.isIntersecting && window.innerWidth <= 500) {
+        // When section is not in view
+        document.documentElement.style.scrollSnapType = 'y mandatory';
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  // Start observing
+  observer.observe(studioSection);
+});
+
