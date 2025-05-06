@@ -1,4 +1,51 @@
+// Add preloader style to the head immediately in a <script> tag before any other content loads
+(function() {
+  // Create style element and add it to head immediately
+  const preloaderStyle = document.createElement('style');
+  preloaderStyle.textContent = `
+    body {
+      visibility: hidden;
+      overflow: hidden;
+    }
+    
+    #initial-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      z-index: 10000;
+      visibility: visible;
+    }
+  `;
+  document.head.appendChild(preloaderStyle);
+  
+  // Create initial loader element
+  const initialLoader = document.createElement('div');
+  initialLoader.id = 'initial-loader';
+  
+  // Add it to body as soon as body is available
+  if (document.body) {
+    document.body.appendChild(initialLoader);
+  } else {
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.appendChild(initialLoader);
+    });
+  }
+})();
+
+// Regular loading animation
 document.addEventListener('DOMContentLoaded', function() {
+  // Make body visible once we're controlling the animation
+  document.body.style.visibility = 'visible';
+  
+  // Remove initial loader as it's no longer needed
+  const initialLoader = document.getElementById('initial-loader');
+  if (initialLoader) {
+    initialLoader.remove();
+  }
+  
   // Create loading animation elements
   const loadingOverlay = document.createElement('div');
   loadingOverlay.className = 'loading-overlay';
