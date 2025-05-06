@@ -289,17 +289,17 @@
                   filter='url(#noiseFilter)' />
           </svg>
           <div class="content">
-            <h1 style="text-align: center; font-size: 60px; color: rgb(173, 173, 173); margin-bottom: 30px;">Contact Me</h1>
+            <h1 style="text-align: center; color: rgb(173, 173, 173); margin-bottom: 30px;">Contact Me</h1>
             <form id="contact-form" method="post" style="background: transparent;">
                 <input type="hidden" id="to_name" name="to_name" value="Jack Su">
                 <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Name</label>
-                <input placeholder="NAME" type="text" id="from_name" name="from_name" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; margin: 10px; display: block; width: 100%; color: black; font-size: 16px; ::placeholder { color: black; }">
+                <input placeholder="NAME" type="text" id="from_name" name="from_name" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; color: black; font-size: 16px; ::placeholder { color: black; }">
                 <br>
                 <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Email</label>
-                <input placeholder="EMAIL" type="email" id="user_email" name="user_email" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; margin: 10px; display: block; width: 100%; color: black; font-size: 16px;"">
+                <input placeholder="EMAIL" type="email" id="user_email" name="user_email" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; color: black; font-size: 16px;"">
                 <br>
                 <label for="email" style="font-size: 20px; color: rgb(173, 173, 173); font-weight: bold;">Message</label>
-                <textarea placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT" id="message" name="message" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; margin: 10px; display: block; width: 100%; height: 150px; color: black; font-size: 16px; resize: none;"></textarea>
+                <textarea placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT" id="message" name="message" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; height: 150px; color: black; font-size: 16px; resize: none;"></textarea>
                 <br>
                 <input class="submit-btn" type="submit" value="Send"></input>
               </form>
@@ -413,7 +413,11 @@
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script type="module">
+      import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
+    </script>
     <script src="./script.js"></script>
     <script src="./email_api.js"></script>
+    <script src="./animations.js"></script>
   </body>
 </html>
