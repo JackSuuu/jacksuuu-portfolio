@@ -319,4 +319,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start observing
   observer.observe(studioSection);
 });
-

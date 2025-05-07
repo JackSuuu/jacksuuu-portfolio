@@ -50,6 +50,7 @@
         <div class="loader"></div>
       </h3>
       <div class="cursor"></div>
+      <div class="scroll-indicator"></div>
 
       <div class="scroll-indicator">
         <div class="dot" data-section="hello"></div>
@@ -148,7 +149,7 @@
               alt=""
             />
             </a>
-            PROJECTS
+            SELECTED PROJECTS
           </h2>
           <!--   <h3 class="headline centered">STUDIO</h3> -->
           <div class="cards-container">
@@ -156,75 +157,75 @@
 
             <div class="card">
               <h2>ContextGPT: custom GPT assistant</h2>
-              <p>
+              <p class="hoverBtn">
                 developed a specialized AI assistant by integrating the GROQ API, the LangChain framework
                 and the Chroma vector database to enhance the interpretation capabilities of files. Optimized the processing and
                 retrieval of PDF materials, enabling efficient and interactive learning experiences. This solution improved accuracy and
                 response speed, streamlining how users engage with academic content. 
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/UniGPT">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/UniGPT">+ MORE</a></h3>
               <img src="https://github.com/JackSuuu/ContextGPT/raw/main/media/landing_new.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
               <h2>GPT from scratch</h2>
-              <p>
+              <p class="hoverBtn">
                 Developing a Generative Pre-trained Transformer (GPT) based on the architecture outlined in the paper 'Attention is All You Need.'
                 This involves understanding and implementing the underlying mechanisms, including activation functions, loss functions, and normalization techniques, 
                 to gain a deeper insight into the model's operation and performance.
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/GPT-from-scratch-jacksu">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/GPT-from-scratch-jacksu">+ MORE</a></h3>
               <img src="asset/gpt-scratch.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
 
             <div class="card">
               <h2>Exam Paper OCR Searching Application</h2>
-              <p>
+              <p class="hoverBtn">
                 This software leverages OCR technology to search for questions and answers in past exam papers. 
                 Currently, it’s in the prototype phase, with ongoing improvements in development. 
                 While the system is functional, it indexes each page individually, which impacts its efficiency. 
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Examable">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Examable">+ MORE</a></h3>
               <img src="asset/examble.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
               <h2>NeuralLott: Lottery Prediction using Neural Networks</h2>
-              <p>
+              <p class="hoverBtn">
                 This project involves developing a neural network classifier to predict lottery numbers. 
                 The model explores patterns in historical data, aiming to improve prediction accuracy while leveraging deep learning techniques. 
                 Currently, it’s an experimental approach focused on optimizing model performance.
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/NeuralLott">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/NeuralLott">+ MORE</a></h3>
               <img src="asset/neuralLott.webp" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
               <h2>Punk Battle: Street Fighting Game</h2>
-              <p>
+              <p class="hoverBtn">
                 A dynamic street-fighting game where players face off against opponents in gritty, urban environments. 
                 The project focuses on fast-paced combat mechanics, unique character abilities, and engaging visuals. 
                 The game aims to deliver an exciting arcade-style experience.
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Punk-Battle/tree/main">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Punk-Battle/tree/main">+ MORE</a></h3>
               <img src="https://github.com/JackSuuu/Punk-Battle/raw/main/game_design/demo.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
             <div class="card">
               <h2>Papaering: A-Level Exam Paper Search Application</h2>
-              <p>
+              <p class="hoverBtn">
                 Papering is a Python-based tool designed to help students quickly find A-Level exam papers. 
                 Using Beautiful Soup for web scraping and WebBrowser for easy access, it streamlines the process of searching and retrieving relevant papers. 
                 The interface, built with PyQt5, ensures a user-friendly experience.
               </p>
               <p></p>
-              <h3 class="btn-more hoverBtn"><a href="https://github.com/JackSuuu/Papering">+ MORE</a></h3>
+              <h3 class="btn-more"><a href="https://github.com/JackSuuu/Papering">+ MORE</a></h3>
               <img src="asset/papering.png" class="popupImg popup-img" alt="Popup Image">
             </div>
 
@@ -480,45 +481,38 @@
           </div>
         </div>
       </section>
-      <script>
-        const hoverButtons = document.querySelectorAll(".hoverBtn");
-    
-        hoverButtons.forEach((button) => {
-            // Find the parent card and then the image within it
-            const card = button.closest('.card');
-            const image = card.querySelector('.popup-img');
-    
-            // Only proceed if the image exists
-            if (!image) return;
-    
-            button.addEventListener("mouseenter", () => {
-                image.style.display = "block";
-                gsap.fromTo(
-                    image,
-                    { opacity: 0, scale: 0.5 },
-                    { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }
-                );
-            });
-    
-            button.addEventListener("mouseleave", () => {
-                gsap.to(image, {
-                    opacity: 0,
-                    scale: 0.5,
-                    duration: 0.3,
-                    onComplete: () => {
-                        image.style.display = "none";
-                    },
-                });
-            });
-    
-            button.addEventListener("mousemove", (event) => {
-                if (image.style.display === "block") {
-                    image.style.left = `${event.clientX - 70}px`;
-                    image.style.top = `${event.clientY - 350}px`;
-                }
-            });
-        });
-    </script>
+    <script>
+      const hoverButtons = document.querySelectorAll(".hoverBtn");
+  
+      hoverButtons.forEach((button) => {
+          // Find the parent card and then the image within it
+          const card = button.closest('.card');
+          const image = card.querySelector('.popup-img');
+  
+          // Only proceed if the image exists
+          if (!image) return;
+  
+          button.addEventListener("mouseenter", () => {
+              image.style.display = "block";
+              gsap.fromTo(
+                  image,
+                  { opacity: 0, scale: 0.5 },
+                  { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }
+              );
+          });
+  
+          button.addEventListener("mouseleave", () => {
+              gsap.to(image, {
+                  opacity: 0,
+                  scale: 0.5,
+                  duration: 0.3,
+                  onComplete: () => {
+                      image.style.display = "none";
+                  },
+              });
+          });
+      });
+  </script>
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
