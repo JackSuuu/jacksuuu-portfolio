@@ -442,7 +442,7 @@ a {
 
 @media (max-width: 900px) {
   .headline {
-    font-size: 130px;
+    font-size: 100px;
     transition: all 0.6s ease, word-wrap 0.6s ease;
   }
 }
@@ -1042,33 +1042,11 @@ svg text {
 	}
 }
 
-.wrapper {
-  width: 100%; /* Change from 150% to 100% */
-  background-color: none;
-  padding-right: 0; /* Adjust padding */
-  box-sizing: border-box;
-}
-
-
-@media (max-width: 1180px) {
-  .wrapper {
-    position: relative;
-    right: 90px;
-  }
-}
-
-@media (min-width: 500px) {
-  .wrapper {
-    position: relative;
-    right: 90px;
-    padding-right: 0;
-  }
-}
-
 .about-me-container {
   display: flex;
   justify-content: space-between;
   padding: 50px;
+  min-height: 80vh;
 }
 
 .left-content {
@@ -1078,14 +1056,23 @@ svg text {
   position: relative;
 }
 
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
 
 .profile-image {
-  border: 5px solid black;
-  max-width: 450px;
+  position: relative; /* Changed from absolute */
+  margin-top: 65px;
+  margin-left: 190px;
+  border: 6px solid black;
+  max-width: 420px;
   filter: grayscale(100%);
-  position: absolute;
-  left: 240px;
-  top: 100px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1105,7 +1092,7 @@ svg text {
 
 
 .about-me-headline {
-  font-size: 60px;
+  font-size: 58px;
 }
 
 .description {
@@ -1120,13 +1107,6 @@ svg text {
 
   .right-content {
     padding: 10px 100px;
-  }
-
-  .profile-image {
-    position: static;
-    max-width: 400px;
-    margin: -70px auto;
-    margin-left: 180px;
   }
 }
 
@@ -1160,18 +1140,57 @@ svg text {
   .description {
     margin: 0 auto;
   }
+}
 
-  .profile-image {
-    /* max-width: 310px; */
-    position: static;
-    margin: 0 auto;
-    margin-top: -80px;
-    top: -100px;
+@media (max-width: 1024px) {
+  .about-me-headline {
+    font-size: 30px;
   }
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 1024px) {
   .profile-image {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+  
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .wrapper {
+    position: relative;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-image {
+    position: static;
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-image {
+    position: static;
     max-width: 310px;
   }
 }
@@ -1199,9 +1218,8 @@ svg text {
 /* Container for the icon list */
 .icon-list {
   position: absolute;
-  right: 230px;
-  top: 150px;
-  width: 100%;
+  top: 30%;
+  transform: translateY(-50%); /* Center vertically relative to profile-image */
   display: flex;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -1236,21 +1254,54 @@ svg text {
   cursor: pointer;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1024px) {
   .icon-list {
-    position: static;
+    position: relative;
     margin-top: 20px;
-    margin-bottom: -40px;
+    transform: none;
+    width: 100%;
+    display: block;
+    top: auto;
+    left: 0;
+    order: 2;
   }
-
+  
   .icon-list ul {
-    padding-left: 0;
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    list-style: none;
+    width: 100%;
+    padding: 0;
+    gap: 15px;
+  }
+  
+  .icon-list ul li {
+    margin: 0 5px;
+  }
+  
+  .icon-list ul li a img {
+    width: 35px;
+    height: 35px;
   }
 }
+
+@media (max-width: 768px) {
+  .icon-list {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-list ul {
+    gap: 10px;
+  }
+  
+  .icon-list ul li a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 
 .popup-img {
   position: absolute;
