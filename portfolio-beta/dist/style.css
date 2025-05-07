@@ -213,6 +213,11 @@ section .section-content {
   transition: all 0.3s ease-in-out;
 }
 
+section#studio .section-content {
+  margin-top: 90px;
+}
+
+
 @media (max-width: 500px) {
   section#studio .section-content {
     top: 0rem;
@@ -1237,6 +1242,13 @@ svg text {
 }
 
 @media (max-width: 1024px) {
+  .about-me-headline {
+    margin-top: 0;
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 400px) {
   .about-me-headline {
     font-size: 30px;
   }
