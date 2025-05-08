@@ -271,9 +271,9 @@ section .section-content .title {
   }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 375px) {
   section .section-content .inner-intro .title {
-    font-size: 15px;
+    font-size: 14px;
     left: -3rem;
     transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
@@ -440,7 +440,7 @@ a {
 .headline {
   filter: var(--filter-01);
   letter-spacing: -0.11em;
-  font-family: "Inter", sans-serif;
+  font-family: "Georgia", serif;
   font-weight: 500;
   font-size: 9em;
   white-space: nowrap;
@@ -1248,7 +1248,7 @@ svg text {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
   .about-me-headline {
     font-size: 30px;
   }
