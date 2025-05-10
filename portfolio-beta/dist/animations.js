@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
       justify-content: center;
       align-items: center;
       font-family: 'Courier New', monospace;
-      box-shadow: inset 0 0 150px 5px rgba(0, 255, 170, 0.25);
+      box-shadow: inset 0 0 150px 5px rgba(255, 255, 255, 0.25);
     }
     
     .percent-counter {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
       font-size: 14vw;
       color:rgb(255, 255, 255);
       font-weight: bold;
-      text-shadow: 0 0 15px rgba(0, 255, 170, 0.8);
+      text-shadow: 0 0 15px rgba(241, 217, 255, 0.8);
       transition: opacity 0.5s ease;
       margin-bottom: 15px;
       letter-spacing: -1px;
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: rgba(0, 255, 170, 0.5);
+      background-color: rgba(255, 255, 255, 0.5);
       opacity: 0.7;
       animation: scan 3s linear infinite;
       pointer-events: none;
