@@ -4,7 +4,6 @@
   const preloaderStyle = document.createElement('style');
   preloaderStyle.textContent = `
     body {
-      background-color: black;
       color: black;
       visibility: hidden;
       overflow: hidden;
@@ -37,15 +36,21 @@
   }
 })();
 
-// Regular loading animation
-document.addEventListener('DOMContentLoaded', function() {
-  // Make body visible once we're controlling the animation
+// Extracted loading animation function
+const runLoadingAnimation = (isAnimate = true) => {
+  // Make body visible immediately if not animating
   document.body.style.visibility = 'visible';
   
-  // Remove initial loader as it's no longer needed
+  // Remove initial loader
   const initialLoader = document.getElementById('initial-loader');
   if (initialLoader) {
     initialLoader.remove();
+  }
+  
+  // If animation is disabled, just return early
+  if (!isAnimate) {
+    document.body.style.overflow = 'auto';
+    return;
   }
   
   // Create loading animation elements
@@ -186,47 +191,58 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 200);
     }
   }, 25); // Adjusted for slightly faster loading
+};
+
+// Regular document loading
+document.addEventListener('DOMContentLoaded', function() {
+  // Control whether to show the loading animation or not
+  const isAnimate = false; // * Set to false to disable animation
+  
+  // Execute loading animation based on flag
+  runLoadingAnimation(isAnimate);
 
   // Get the headline element
   const headline = document.querySelector('.headline.centered');
   
-  // Split the text into individual letters and wrap each in a span
-  headline.innerHTML = headline.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-  
-  // Create a smoother, more natural wave animation
-  function animateWave() {
-    anime({
-      targets: '.headline .letter',
-      translateY: function(el, i) {
-        return Math.sin(i * 0.1) * 15; // Gentler wave with reduced amplitude and frequency
-      },
-      duration: 2000,
-      easing: 'easeInOutQuad', // Smoother easing function
-      delay: function(el, i) {
-        return i * 30; // Reduced delay between letters for more cohesive movement
-      },
-      loop: true,
-      direction: 'alternate', // Creates a natural back-and-forth motion
-      elasticity: 500 // Adds a slight bounce/elasticity to the animation
-    });
-  }
-
-  // Start the wave animation
-  animateWave();
-  
-  // Add CSS for better visualization
-  const style = document.createElement('style');
-  style.textContent = `
-    .headline .letter {
-      display: inline-block;
-      line-height: 1em;
-      will-change: transform;
-      transition: transform 0.1s; /* Add a slight transition for smoother motion */
-    }
+  if (headline) {
+    // Split the text into individual letters and wrap each in a span
+    headline.innerHTML = headline.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     
-    .headline {
-      perspective: 1000px;
+    // Create a smoother, more natural wave animation
+    const animateWave = () => {
+      anime({
+        targets: '.headline .letter',
+        translateY: function(el, i) {
+          return Math.sin(i * 0.1) * 15; // Gentler wave with reduced amplitude and frequency
+        },
+        duration: 2000,
+        easing: 'easeInOutQuad', // Smoother easing function
+        delay: function(el, i) {
+          return i * 30; // Reduced delay between letters for more cohesive movement
+        },
+        loop: true,
+        direction: 'alternate', // Creates a natural back-and-forth motion
+        elasticity: 500 // Adds a slight bounce/elasticity to the animation
+      });
     }
-  `;
-  document.head.appendChild(style);
+
+    // Start the wave animation
+    animateWave();
+    
+    // Add CSS for better visualization
+    const style = document.createElement('style');
+    style.textContent = `
+      .headline .letter {
+        display: inline-block;
+        line-height: 1em;
+        will-change: transform;
+        transition: transform 0.1s; /* Add a slight transition for smoother motion */
+      }
+      
+      .headline {
+        perspective: 1000px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 });
