@@ -32,6 +32,44 @@
   --filter-01:url(#lines-effect);
 }
 
+/* Hide scrollbar for all elements while maintaining scroll functionality */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Override the existing scrollbar rules */
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border: none;
+}
+
+/* Keep scroll functionality in elements that need it */
+html, body {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.cards-container {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 body {
   cursor: none;
 }
@@ -1315,7 +1353,7 @@ svg text {
 /* Container for the icon list */
 .icon-list {
   position: absolute;
-  top: 30%;
+  top: 45%;
   transform: translateY(-50%); /* Center vertically relative to profile-image */
   display: flex;
   justify-content: center;
