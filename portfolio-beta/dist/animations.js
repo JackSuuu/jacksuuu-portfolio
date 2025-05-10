@@ -4,6 +4,8 @@
   const preloaderStyle = document.createElement('style');
   preloaderStyle.textContent = `
     body {
+      background-color: black;
+      color: black;
       visibility: hidden;
       overflow: hidden;
     }
