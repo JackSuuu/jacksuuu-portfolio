@@ -12,8 +12,8 @@ document.addEventListener("mousemove", (e) => {
 });
 
 function animateCursor() {
-  curX += (targetX - curX) / 10;
-  curY += (targetY - curY) / 10;
+  curX += (targetX - curX) / 12;
+  curY += (targetY - curY) / 12;
   curs.style.transform = `translate(${curX}px, ${curY}px)`;
   requestAnimationFrame(animateCursor);
 }

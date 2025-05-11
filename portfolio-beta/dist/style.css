@@ -1,5 +1,5 @@
 :root {
-  --c0: #F8F7F6;
+  --c0: white;
   --c1: #f5f5dc;
   --c2: #dcdcc6;
   --c3: #c4c4b0;
@@ -637,6 +637,15 @@ a {
   pointer-events: none;
 }
 
+/* Add this rule to ensure links maintain their proper cursor behavior */
+a, button, input[type="button"], input[type="submit"], .btn-fullscreen, #toggle-theme {
+  cursor: none; /* Hide the default cursor */
+  pointer-events: auto; /* Ensure the links remain clickable */
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+              border 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 .cursor.link-hover {
   transform: scale(1.8);
   border-width: 2px;
@@ -755,10 +764,12 @@ a {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: #F8F7F7;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.09;
   /*
   http://www.patternify.com/
   url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQYV2NkQAX/GZH4/xkYGBhhAmAOSBJEwDkgAQCCrgQEjpMcPgAAAABJRU5ErkJggg==) repeat;
+  #F8F7F7
   */
   z-index: 999;
   opacity: 1;
