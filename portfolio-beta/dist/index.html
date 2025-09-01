@@ -488,6 +488,62 @@
           });
       });
   </script>
+
+    <!-- Easter Egg Mini Game -->
+    <div id="mini-game-overlay" class="game-overlay">
+      <div class="game-container">
+        <div class="game-header">
+          <h2>✈️ SGH Sky Battle</h2>
+          <button id="close-game">×</button>
+        </div>
+        <div class="game-info">
+          <div class="stat-item">
+            <span class="stat-label">Score</span>
+            <span id="score" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">High Score</span>
+            <span id="high-score" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Health</span>
+            <span id="health" class="stat-value">100</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Lives</span>
+            <span id="lives" class="stat-value">3</span>
+          </div>
+        </div>
+        <div class="game-canvas-container">
+          <canvas id="game-canvas" width="1000" height="400"></canvas>
+          <div class="game-effects">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+          </div>
+        </div>
+        <div class="game-controls">
+          <div class="control-keys">
+            <div class="key-group">
+              <span class="key">A</span><span class="key">D</span>
+              <span class="control-desc">Move Left/Right</span>
+            </div>
+            <div class="key-group">
+              <span class="key">W</span><span class="key">S</span>
+              <span class="control-desc">Move Up/Down</span>
+            </div>
+            <div class="key-group">
+              <span class="key">Space</span>
+              <span class="control-desc">Shoot</span>
+            </div>
+          </div>
+          <button id="restart-game">Restart</button>
+        </div>
+      </div>
+    </div>
+
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
@@ -495,7 +551,7 @@
       import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
     </script>
     <script src="./script.js"></script>
-    <script src="./email_api.js"></script>
+    <!-- <script src="./email_api.js"></script> -->
     <script src="./animations.js"></script>
     <script src="./scroll.js"></script>
   </body>

@@ -1535,3 +1535,273 @@ svg text {
     margin-bottom: 1rem;
   }
 }
+
+/* Easter Egg Mini Game Styles */
+.game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(10px);
+  cursor: auto !important; /* Make cursor visible in game */
+}
+
+.game-overlay.active {
+  display: flex;
+  cursor: auto !important; /* Ensure cursor is visible when game is active */
+}
+
+.game-container {
+  background: linear-gradient(135deg, var(--c0), rgba(255, 255, 255, 0.95));
+  border: 2px solid var(--c10);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  position: relative;
+  animation: gameAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  width: 90vw;
+  height: 90vh;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  cursor: auto !important; /* Ensure cursor is visible in game container */
+}
+
+@keyframes gameAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.game-header h2 {
+  margin: 0;
+  color: var(--c11);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#close-game {
+  background: rgba(244, 67, 54, 0.1);
+  border: 2px solid rgba(244, 67, 54, 0.3);
+  font-size: 1.5rem;
+  color: #F44336;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: bold;
+}
+
+#close-game:hover {
+  background: rgba(244, 67, 54, 0.2);
+  border-color: #F44336;
+  transform: scale(1.1);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  flex: 1;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--c8);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: var(--c11);
+  font-weight: 700;
+}
+
+.game-canvas-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+#game-canvas {
+  border: 3px solid var(--c10);
+  border-radius: 15px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E0E0E0 50%, #C0C0C0 100%);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: auto !important; /* Ensure cursor is visible on canvas */
+}
+
+.game-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.star-1 { width: 2px; height: 2px; top: 20%; left: 10%; animation-delay: 0s; }
+.star-2 { width: 1px; height: 1px; top: 30%; right: 15%; animation-delay: 0.5s; }
+.star-3 { width: 1.5px; height: 1.5px; top: 50%; left: 20%; animation-delay: 1s; }
+.star-4 { width: 1px; height: 1px; top: 70%; right: 25%; animation-delay: 1.5s; }
+.star-5 { width: 2px; height: 2px; top: 80%; left: 50%; animation-delay: 2s; }
+
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(1); }
+  to { opacity: 0.8; transform: scale(1.2); }
+}
+
+.game-controls {
+  color: var(--c8);
+  font-family: 'Inter', sans-serif;
+}
+
+.control-keys {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.key-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.key {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  background: var(--c10);
+  color: var(--c0);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0 0.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-desc {
+  font-size: 0.75rem;
+  color: var(--c8);
+}
+
+#restart-game {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+#restart-game:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+  .game-container {
+    margin: 1rem;
+    padding: 1rem;
+    width: 95vw;
+    height: 95vh;
+  }
+  
+  #game-canvas {
+    width: 350px;
+    height: 500px;
+  }
+  
+  .game-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet responsive */
+@media (max-width: 768px) and (min-width: 501px) {
+  .game-container {
+    width: 95vw;
+    height: 95vh;
+  }
+  
+  #game-canvas {
+    width: 600px;
+    height: 500px;
+  }
+}
