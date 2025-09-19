@@ -412,7 +412,7 @@
           <div class="card-corner bottom-right"></div>
           <div class="content">
             <h1 style="text-align: center; margin-bottom: 30px;">Contact Me</h1>
-            <form id="contact-form" method="post" style="background: transparent;">
+            <form id="contact-form" style="background: transparent;">
                 <input type="hidden" id="to_name" name="to_name" value="Jack Su">
                 <label for="email" style="font-size: 20px; color: black; font-weight: bold;">Name</label>
                 <input placeholder="NAME" type="text" id="from_name" name="from_name" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; color: black; font-size: 16px; ::placeholder { color: black; }">
@@ -423,34 +423,84 @@
                 <label for="email" style="font-size: 20px; color: black; font-weight: bold;">Message</label>
                 <textarea placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT" id="message" name="message" required style="background: rgba(255, 255, 255, 0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display: block; width: 100%; height: 100px; color: black; font-size: 16px; resize: none;"></textarea>
                 <br>
-                <input class="submit-btn" type="submit" value="Send"></input>
+                <button class="submit-btn" type="button" onclick="sendEmail()">Send</button>
               </form>
               <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
               <script type="text/javascript">
                 (function() {
                     // https://dashboard.emailjs.com/admin/account
                     emailjs.init({
-                      publicKey: "o4yJ9AY-P6vtTRC1N",
+                      publicKey: "vRJ9hm4mLcIANOGcz",
                     });
                 })();
               </script>
               <script type="text/javascript">
-                window.onload = function() {
-                    document.getElementById('contact-form').addEventListener('submit', function(event) {
-                        event.preventDefault();
-                        // these IDs from the previous steps
-                        const serviceID = 'service_uq1gmwk';
-                        const templateID = 'template_kdgo5b3';
-                        emailjs.sendForm(serviceID, templateID, this)
-                            // console.log(this)
-                            .then(() => {
-                                console.log('SUCCESS!');
-                                alert('SUCCESS')
-                            }, (error) => {
-                                console.log('FAILED...', error);
-                                alert('FAILED')
-                            });
-                    });
+                // Function to send email directly
+                function sendEmail() {
+                    console.log('Send email function called');
+                    
+                    // Show loading state
+                    const submitBtn = document.querySelector('.submit-btn');
+                    if (!submitBtn) {
+                        console.error('Submit button not found!');
+                        return;
+                    }
+                    
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Check if EmailJS is loaded
+                    if (typeof emailjs === 'undefined') {
+                        console.error('EmailJS not loaded!');
+                        alert('❌ Email service not available. Please try again later.');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        return;
+                    }
+                    
+                    // Get form
+                    const form = document.getElementById('contact-form');
+                    if (!form) {
+                        console.error('Contact form not found!');
+                        return;
+                    }
+                    
+                    // Validate form
+                    const name = document.getElementById('from_name').value;
+                    const email = document.getElementById('user_email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (!name || !email || !message) {
+                        alert('❌ Please fill in all fields.');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        return;
+                    }
+                    
+                    // EmailJS service configuration
+                    const serviceID = 'service_t1b601t';
+                    const templateID = 'template_kdgo5b3';
+                    
+                    console.log('Sending email via EmailJS...');
+                    
+                    emailjs.sendForm(serviceID, templateID, form)
+                        .then(() => {
+                            console.log('Email sent successfully!');
+                            alert('✅ Message sent successfully! Thank you for contacting me.');
+                            
+                            // Reset form
+                            form.reset();
+                        })
+                        .catch((error) => {
+                            console.error('Email sending failed:', error);
+                            alert('❌ Failed to send message. Please try again or contact me directly at 18922443765jakc@gmail.com');
+                        })
+                        .finally(() => {
+                            // Reset button state
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        });
                 }
             </script>
           </div>
