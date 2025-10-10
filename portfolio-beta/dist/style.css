@@ -1182,6 +1182,7 @@ svg text {
 
 .left-content {
   margin-top: 30px;
+  margin-left: 20em;
   flex: 1;
   padding: 10px;
   position: relative;
@@ -1237,6 +1238,12 @@ svg text {
 .description {
   max-width: 400px;
   font-size: 20px;
+}
+
+@media (max-width: 2014px) {
+    .left-content {
+      margin-left: 0;
+  }
 }
 
 @media (max-width: 1598px) {
@@ -1313,6 +1320,7 @@ svg text {
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-left: 0;
   }
   
   .wrapper {
