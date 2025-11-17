@@ -277,7 +277,7 @@ section .section-content .title {
   top: 0rem;
   left: 1rem;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   /*
   letter-spacing: 0em;
 
@@ -295,7 +295,7 @@ section .section-content .title {
 
 @media (max-width: 800px) {
   section .section-content .inner-intro .title {
-    font-size: 17px;
+    font-size: 16px;
     left: -3rem;
     transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
@@ -303,7 +303,7 @@ section .section-content .title {
 
 @media (max-width: 500px) {
   section .section-content .inner-intro .title {
-    font-size: 16px;
+    font-size: 15px;
     left: -3rem;
     transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
@@ -311,7 +311,7 @@ section .section-content .title {
 
 @media (max-width: 375px) {
   section .section-content .inner-intro .title {
-    font-size: 14px;
+    font-size: 13px;
     left: -3rem;
     transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
