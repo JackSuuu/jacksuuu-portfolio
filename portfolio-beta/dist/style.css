@@ -270,6 +270,12 @@ section#studio .section-content {
   }
 }
 
+.inner-intro {
+  position: relative;
+  top: 3rem;
+  transition: all 0.3s ease-in-out;
+}
+
 section .section-content .title {
   position: relative;
   transition: color 0.6s cubic-bezier(0.86, 0, 0.07, 1);
@@ -317,7 +323,12 @@ section .section-content .title {
   }
 }
 
-
+@media (max-width: 600px) {
+  .inner-intro {
+    top: calc(3rem + 0.5rem);
+    left: 1rem;
+  }
+}
 
 section#hello .section-content .headline {
   color: var(--c11);
@@ -1292,6 +1303,16 @@ svg text {
   .about-me-headline {
     margin-top: 0;
     font-size: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-me-headline {
+    font-size: 38px;
+  }
+  
+  .description {
+    font-size: 16px;
   }
 }
 
