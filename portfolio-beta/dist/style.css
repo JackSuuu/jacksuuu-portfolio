@@ -272,7 +272,7 @@ section#studio .section-content {
 
 .inner-intro {
   position: relative;
-  top: 3rem;
+  top: 4.5rem;
   transition: all 0.3s ease-in-out;
 }
 
@@ -325,7 +325,7 @@ section .section-content .title {
 
 @media (max-width: 600px) {
   .inner-intro {
-    top: calc(3rem + 0.5rem);
+    top: calc(4rem + 0.5rem);
     left: 1rem;
   }
 }
