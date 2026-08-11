@@ -649,6 +649,8 @@
         <div class="card-corner bottom-right"></div>
         <div class="content">
           <h1 style="text-align: center; margin-bottom: 30px">Contact Me</h1>
+          <div data-fs-success style="display:none; color:green; font-weight:bold; margin-bottom:8px;"></div>
+          <div data-fs-error style="display:none; color:red; font-weight:bold; margin-bottom:8px;"></div>
           <form id="contact-form" style="background: transparent">
             <input type="hidden" id="to_name" name="to_name" value="Jack Su" />
             <label
@@ -660,7 +662,8 @@
               placeholder="NAME"
               type="text"
               id="from_name"
-              name="from_name"
+              name="name"
+              data-fs-field
               required
               style="
                 background: rgba(255, 255, 255, 0.477);
@@ -682,7 +685,7 @@
               >Email</label
             >
             <input placeholder="EMAIL" type="email" id="user_email"
-            name="user_email" required style="background: rgba(255, 255, 255,
+            name="email" data-fs-field required style="background: rgba(255, 255, 255,
             0.477); border: 2px solid rgb(173, 173, 173); padding: 5px; display:
             block; width: 100%; color: black; font-size: 16px;"">
             <br />
@@ -695,6 +698,7 @@
               placeholder="MESSAGE YOU WANT TO SAY: WHATEVER YOU WANT"
               id="message"
               name="message"
+              data-fs-field
               required
               style="
                 background: rgba(255, 255, 255, 0.477);
@@ -709,98 +713,86 @@
               "
             ></textarea>
             <br />
-            <button class="submit-btn" type="button" onclick="sendEmail()">
+            <button class="submit-btn" type="submit" data-fs-submit-btn>
               Send
             </button>
           </form>
-          <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-          ></script>
-          <script type="text/javascript">
-            (function () {
-              // https://dashboard.emailjs.com/admin/account
-              emailjs.init({
-                publicKey: "vRJ9hm4mLcIANOGcz",
-              });
-            })();
-          </script>
-          <script type="text/javascript">
-            // Function to send email directly
-            function sendEmail() {
-              console.log("Send email function called");
-
-              // Show loading state
-              const submitBtn = document.querySelector(".submit-btn");
-              if (!submitBtn) {
-                console.error("Submit button not found!");
-                return;
+          <script>
+            window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+            formspree('initForm', {
+              formElement: '#contact-form',
+              formId: 'xnpadwjg',
+              onSuccess: function() {
+                var s = document.querySelector('[data-fs-success]');
+                if (s) { s.textContent = '✅ Message sent! Thank you for contacting me.'; s.style.display = 'block'; }
+                launchConfetti();
+              },
+              onError: function() {
+                var e = document.querySelector('[data-fs-error]');
+                if (e) { e.textContent = '❌ Failed to send. Please try again or email me directly.'; e.style.display = 'block'; }
               }
+            });
 
-              const originalText = submitBtn.textContent;
-              submitBtn.textContent = "Sending...";
-              submitBtn.disabled = true;
+            function launchConfetti() {
+              var canvas = document.createElement('canvas');
+              canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+              document.body.appendChild(canvas);
+              var ctx = canvas.getContext('2d');
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight;
 
-              // Check if EmailJS is loaded
-              if (typeof emailjs === "undefined") {
-                console.error("EmailJS not loaded!");
-                alert(
-                  "❌ Email service not available. Please try again later."
-                );
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                return;
-              }
-
-              // Get form
-              const form = document.getElementById("contact-form");
-              if (!form) {
-                console.error("Contact form not found!");
-                return;
-              }
-
-              // Validate form
-              const name = document.getElementById("from_name").value;
-              const email = document.getElementById("user_email").value;
-              const message = document.getElementById("message").value;
-
-              if (!name || !email || !message) {
-                alert("❌ Please fill in all fields.");
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                return;
-              }
-
-              // EmailJS service configuration
-              const serviceID = "service_t1b601t";
-              const templateID = "template_kdgo5b3";
-
-              console.log("Sending email via EmailJS...");
-
-              emailjs
-                .sendForm(serviceID, templateID, form)
-                .then(() => {
-                  console.log("Email sent successfully!");
-                  alert(
-                    "✅ Message sent successfully! Thank you for contacting me."
-                  );
-
-                  // Reset form
-                  form.reset();
-                })
-                .catch((error) => {
-                  console.error("Email sending failed:", error);
-                  alert(
-                    "❌ Failed to send message. Please try again or contact me directly at 18922443765jakc@gmail.com"
-                  );
-                })
-                .finally(() => {
-                  // Reset button state
-                  submitBtn.textContent = originalText;
-                  submitBtn.disabled = false;
+              var pieces = [];
+              var colors = ['#ff4081','#ffeb3b','#00e5ff','#76ff03','#ff6d00','#e040fb','#00e676','#2979ff'];
+              for (var i = 0; i < 180; i++) {
+                pieces.push({
+                  x: Math.random() * canvas.width,
+                  y: Math.random() * canvas.height - canvas.height,
+                  w: 8 + Math.random() * 8,
+                  h: 4 + Math.random() * 6,
+                  color: colors[Math.floor(Math.random() * colors.length)],
+                  vx: (Math.random() - 0.5) * 3,
+                  vy: 2 + Math.random() * 4,
+                  angle: Math.random() * Math.PI * 2,
+                  spin: (Math.random() - 0.5) * 0.2,
+                  opacity: 1
                 });
+              }
+
+              var start = null;
+              var duration = 3200;
+
+              function step(ts) {
+                if (!start) start = ts;
+                var elapsed = ts - start;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var progress = elapsed / duration;
+
+                pieces.forEach(function(p) {
+                  p.x += p.vx;
+                  p.y += p.vy;
+                  p.angle += p.spin;
+                  p.vy += 0.07; // gravity
+                  p.opacity = Math.max(0, 1 - Math.pow(progress, 2));
+
+                  ctx.save();
+                  ctx.globalAlpha = p.opacity;
+                  ctx.translate(p.x + p.w / 2, p.y + p.h / 2);
+                  ctx.rotate(p.angle);
+                  ctx.fillStyle = p.color;
+                  ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                  ctx.restore();
+                });
+
+                if (elapsed < duration) {
+                  requestAnimationFrame(step);
+                } else {
+                  canvas.remove();
+                }
+              }
+              requestAnimationFrame(step);
             }
           </script>
+          <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
         </div>
       </div>
     </section>

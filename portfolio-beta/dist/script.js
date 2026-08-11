@@ -633,9 +633,6 @@ console.log('� Go to the top of the page and pull down to activate!');
 function setupEasterEgg() {
   try {
     console.log('🚀 Setting up modern easter egg system...');
-    initPullInterface();
-    initPullEvents();
-    console.log('� Pull interface and events are active');
     console.log('💡 Tip: Scroll to the very top, then pull down!');
     
     // Test scroll immediately
