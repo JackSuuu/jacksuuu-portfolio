@@ -375,8 +375,9 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   
-  // Space key activation (only when game is not active)
-  if (e.key === ' ' && !gameActive) {
+  // Space key activation (only when game is not active and not typing in an input/textarea)
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (e.key === ' ' && !gameActive && tag !== 'INPUT' && tag !== 'TEXTAREA') {
     e.preventDefault(); // Prevent page scroll
     
     spaceClickCount++;
